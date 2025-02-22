@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dashboard">
+
+  <!-- Profil de l'utilisateur (Nom d'utilisateur) -->
+  <TextView
+      android:id="@+id/textViewUsername"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Nom d'utilisateur: user123"
+      android:textSize="18sp"
+      android:layout_marginTop="20dp"
+      android:textStyle="bold"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+  <!-- Section Connexion -->
+
+  <!-- GridView des Catégories et Produits -->
+
+  <TextView
+      android:id="@+id/textViewLoginStatus"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="Connecté"
+      android:textSize="16sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/textViewUsername" />
+
+  <GridView
+      android:id="@+id/gridViewCategoriesProducts"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:columnWidth="100dp"
+      android:horizontalSpacing="10dp"
+      android:verticalSpacing="10dp"
+      android:padding="10dp"
+      android:numColumns="2"
+      app:layout_constraintTop_toBottomOf="@id/textViewLoginStatus"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toTopOf="@id/buttonLogout"/>
+
+  <!-- Bouton d'ajout (FloatingActionButton) -->
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/fabAdd"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@android:drawable/ic_input_add"
+      app:layout_constraintBottom_toTopOf="@id/buttonLogout"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_margin="16dp"/>
+
+  <!-- Bouton Déconnexion -->
+  <Button
+      android:id="@+id/buttonLogout"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Déconnexion"
+      android:textColor="@android:color/white"
+      android:backgroundTint="@color/blue"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_margin="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
