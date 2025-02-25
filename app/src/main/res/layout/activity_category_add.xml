@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoryAdd">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Saisie du nom de la catégorie -->
+    <EditText
+        android:id="@+id/etCategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom de la catégorie" />
+
+    <!-- Affichage de l'image sélectionnée -->
+    <ImageView
+        android:id="@+id/ivCategoryImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="16dp" />
+
+    <!-- Bouton pour sélectionner l'image -->
+    <Button
+        android:id="@+id/btnSelectImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sélectionner l'image"
+        android:layout_marginTop="8dp" />
+
+    <!-- Bouton pour ajouter la catégorie -->
+    <Button
+        android:id="@+id/btnAddCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ajouter la catégorie"
+        android:layout_marginTop="16dp" />
+    <Button
+        android:id="@+id/btndetailsCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="details la catégorie"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

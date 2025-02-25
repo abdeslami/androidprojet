@@ -1,44 +1,25 @@
 package com.example.projet.model;
 
-public class Category {
-    private  int id;
-    private  String nom;
-    private  String image;
-    public  Category(int id,String nom,String image){
-        this.id=id;
-        this.nom=nom;
-        this.image=image;
-    }
 
-    public int getId() {
-        return id;
-    }
+    public class Category {
+        private int id;
+        private String name;
+        private byte[] image;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        public Category(int id, String name, byte[] image) {
+            this.id = id;
+            this.name = name;
+            this.image = image;
+        }
 
-    public String getImage() {
-        return image;
+        // Getters et Setters
+        public int getId() {
+            return id;
+        }
+        public String getName() {
+            return name;
+        }
+        public byte[] getImage() {
+            return image;
+        }
     }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", image='" + image + '\'' +
-                '}';
-    }
-}

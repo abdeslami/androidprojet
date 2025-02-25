@@ -11,44 +11,53 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.projet.controller.categoryController.AddCategory;
+import com.example.projet.controller.productController.AddProduitActivity;
+
 public class Dashboard extends AppCompatActivity {
 
     private TextView textViewUsername, textViewLoginStatus;
-    private GridView gridViewCategoriesProducts;
-    private Button buttonLogout;
+
+    private Button buttonLogout,btnProduct,btnCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        btnProduct = findViewById(R.id.gotoProduct);
+        btnCategory = findViewById(R.id.gotoCategory);
 
-        // Initialisation des vues
+        btnCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(), AddCategory.class);
+                startActivity(intent);
+            }
+        });
+        btnProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(), AddProduitActivity.class);
+                startActivity(intent);
+            }
+        });
         textViewUsername = findViewById(R.id.textViewUsername);
         textViewLoginStatus = findViewById(R.id.textViewLoginStatus);
-        gridViewCategoriesProducts = findViewById(R.id.gridViewCategoriesProducts);
         buttonLogout = findViewById(R.id.buttonLogout);
 
-        // Récupérer les informations de l'utilisateur depuis SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("nom", "Utilisateur");
         String email = sharedPreferences.getString("email", "email@example.com");
 
-        // Mettre à jour l'interface avec les données de l'utilisateur
         textViewUsername.setText("Nom d'utilisateur: " + username);
         textViewLoginStatus.setText("Connecté avec: " + email);
 
-        // Simuler un GridView avec des catégories et produits (à adapter à ta logique)
-        // Remplir le GridView avec des données (ici, tu utiliserais un Adapter)
-        // gridViewCategoriesProducts.setAdapter(new MyAdapter(...));
 
-        // Bouton de déconnexion
         buttonLogout.setOnClickListener(v -> {
-            // Effacer les données de connexion de SharedPreferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.clear();
             editor.apply();
 
-            // Retourner à l'écran de connexion
             Intent intent = new Intent(Dashboard.this, Login.class);
             startActivity(intent);
             finish();

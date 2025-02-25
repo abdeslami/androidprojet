@@ -13,10 +13,23 @@
         android:theme="@style/Theme.Projet"
         tools:targetApi="31">
         <activity
-            android:name=".controller.productController.Product"
+            android:name=".controller.productController.EditProduitActivity"
             android:exported="false" />
         <activity
-            android:name=".controller.categoryController.Category"
+            android:name=".controller.productController.AddProduitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controller.productController.ProduitDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controller.categoryController.CategoryDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controller.categoryController.AddCategory"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.categoryController.EditCategoryActivity"
             android:exported="false" /> <!-- Déclare SplashScreen comme l'activité de démarrage -->
         <activity
             android:name=".SplashScreen"

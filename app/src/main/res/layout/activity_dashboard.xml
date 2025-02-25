@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,41 +15,20 @@
       android:layout_height="wrap_content"
       android:text="Nom d'utilisateur: user123"
       android:textSize="18sp"
-      android:layout_marginTop="20dp"
       android:textStyle="bold"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"/>
+      android:layout_marginTop="20dp"
+      android:layout_centerHorizontal="true" />
 
   <!-- Section Connexion -->
-
-  <!-- GridView des Catégories et Produits -->
-
   <TextView
       android:id="@+id/textViewLoginStatus"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
       android:text="Connecté"
       android:textSize="16sp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/textViewUsername" />
-
-  <GridView
-      android:id="@+id/gridViewCategoriesProducts"
-      android:layout_width="0dp"
-      android:layout_height="0dp"
-      android:columnWidth="100dp"
-      android:horizontalSpacing="10dp"
-      android:verticalSpacing="10dp"
-      android:padding="10dp"
-      android:numColumns="2"
-      app:layout_constraintTop_toBottomOf="@id/textViewLoginStatus"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintBottom_toTopOf="@id/buttonLogout"/>
+      android:layout_below="@id/textViewUsername"
+      android:layout_marginTop="8dp"
+      android:layout_centerHorizontal="true" />
 
   <!-- Bouton d'ajout (FloatingActionButton) -->
   <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -57,21 +36,41 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:src="@android:drawable/ic_input_add"
-      app:layout_constraintBottom_toTopOf="@id/buttonLogout"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:layout_margin="16dp"/>
+      android:layout_alignParentEnd="true"
+      android:layout_above="@id/buttonLogout"
+      android:layout_margin="16dp" />
 
   <!-- Bouton Déconnexion -->
   <Button
       android:id="@+id/buttonLogout"
-      android:layout_width="0dp"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="Déconnexion"
       android:textColor="@android:color/white"
       android:backgroundTint="@color/blue"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:layout_margin="16dp"/>
+      android:layout_alignParentBottom="true"
+      android:layout_margin="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+  <!-- Bouton Produit -->
+  <Button
+      android:id="@+id/gotoProduct"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Produit"
+      android:layout_below="@id/textViewLoginStatus"
+      android:layout_alignParentStart="true"
+      android:layout_marginStart="45dp"
+      android:layout_marginTop="66dp" />
+
+  <!-- Bouton Catégorie placé à droite du bouton Produit -->
+  <Button
+      android:id="@+id/gotoCategory"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/textViewLoginStatus"
+      android:layout_marginStart="96dp"
+      android:layout_marginTop="63dp"
+      android:layout_toEndOf="@id/gotoProduct"
+      android:text="Categorie" />
+
+</RelativeLayout>

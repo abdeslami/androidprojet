@@ -47,7 +47,7 @@ public class CategoryListAdapter extends BaseAdapter {
         ViewHolder holder;
 
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_category, parent, false);
+            convertView = inflater.inflate(R.layout.listitemcategory, parent, false);
             holder = new ViewHolder();
             holder.ivCategoryImage = convertView.findViewById(R.id.ivCategoryImage);
             holder.tvCategoryName = convertView.findViewById(R.id.tvCategoryName);
