@@ -55,7 +55,6 @@ public class AddCategory extends AppCompatActivity {
         dbHelper = new DatabaseHelper(this);
 
         btnSelectImage.setOnClickListener(view -> {
-            // Lancer l'intent pour sélectionner une image dans la galerie
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(intent, REQUEST_IMAGE_PICK);
         });
@@ -74,7 +73,6 @@ public class AddCategory extends AppCompatActivity {
                 Toast.makeText(AddCategory.this, "Veuillez saisir le nom et sélectionner une image", Toast.LENGTH_SHORT).show();
                 return;
             }
-            // Convertir le Bitmap en tableau d’octets
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             selectedImage.compress(Bitmap.CompressFormat.PNG, 100, baos);
             byte[] imageBytes = baos.toByteArray();

@@ -59,13 +59,11 @@ public class CategoryListAdapter extends BaseAdapter {
         Category category = categoryList.get(position);
         holder.tvCategoryName.setText(category.getName());
 
-        // Conversion du tableau d’octets en Bitmap
         byte[] imageBytes = category.getImage();
         if (imageBytes != null) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
             holder.ivCategoryImage.setImageBitmap(bitmap);
         } else {
-            // Vous pouvez définir une image par défaut si besoin
             holder.ivCategoryImage.setImageResource(R.drawable.ic_launcher_background);
         }
 

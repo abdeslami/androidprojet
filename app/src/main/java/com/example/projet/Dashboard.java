@@ -63,8 +63,8 @@ public class Dashboard extends AppCompatActivity {
         String username = sharedPreferences.getString("nom", "Utilisateur");
         String email = sharedPreferences.getString("email", "email@example.com");
 
-        textViewUsername.setText("Nom d'utilisateur: " + username);
-        textViewLoginStatus.setText("Connecté avec: " + email);
+        textViewUsername.setText("");
+        textViewLoginStatus.setText("Connecté  " );
 
 
         buttonLogout.setOnClickListener(v -> {

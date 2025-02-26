@@ -49,7 +49,6 @@ public class EditCategoryActivity extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
 
-        // Récupérer l'ID de la catégorie transmis via l'intent
         categoryId = getIntent().getIntExtra("CATEGORY_ID", -1);
         if (categoryId == -1) {
             Toast.makeText(this, "Catégorie introuvable", Toast.LENGTH_SHORT).show();
@@ -57,10 +56,8 @@ public class EditCategoryActivity extends AppCompatActivity {
             return;
         }
 
-        // Charger les détails actuels de la catégorie
         loadCategoryDetails();
 
-        // Sélectionner une nouvelle image
         btnSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +66,6 @@ public class EditCategoryActivity extends AppCompatActivity {
             }
         });
 
-        // Mettre à jour la catégorie
         btnUpdateCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +76,6 @@ public class EditCategoryActivity extends AppCompatActivity {
                     return;
                 }
 
-                // Vérification : si l'image n'a pas été modifiée, on utilise l'ancienne image
                 if (imageBytes == null) {
                     Toast.makeText(EditCategoryActivity.this, "Veuillez sélectionner une image", Toast.LENGTH_SHORT).show();
                     return;
@@ -97,7 +92,6 @@ public class EditCategoryActivity extends AppCompatActivity {
         });
     }
     @SuppressLint("Range")
-    // Charge les informations de la catégorie depuis la base de données
     private void loadCategoryDetails() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query("category", new String[]{"name", "image"}, "id=?", new String[]{String.valueOf(categoryId)}, null, null, null);
@@ -114,7 +108,6 @@ public class EditCategoryActivity extends AppCompatActivity {
         }
     }
 
-    // Gestion du résultat de la sélection d'image
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -124,7 +117,6 @@ public class EditCategoryActivity extends AppCompatActivity {
                 selectedImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
                 ivCategoryImage.setImageBitmap(selectedImage);
 
-                // Conversion du Bitmap en tableau d’octets
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 selectedImage.compress(Bitmap.CompressFormat.PNG, 100, baos);
                 imageBytes = baos.toByteArray();

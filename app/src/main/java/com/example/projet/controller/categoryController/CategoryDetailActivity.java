@@ -43,7 +43,6 @@ public class CategoryDetailActivity extends AppCompatActivity {
         adapter = new CategoryListAdapter(this, categoryList);
         listViewCategories.setAdapter(adapter);
 
-        // Ajout de l'écouteur de clic sur un item
         listViewCategories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -77,7 +76,6 @@ public class CategoryDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (which == 0) {
-                    // Modifier : ouvrir une activité d'édition (à créer)
                     Intent intent = new Intent(CategoryDetailActivity.this, EditCategoryActivity.class);
                     intent.putExtra("CATEGORY_ID", category.getId());
                     startActivity(intent);
@@ -90,7 +88,6 @@ public class CategoryDetailActivity extends AppCompatActivity {
         builder.show();
     }
 
-    // Supprime la catégorie après confirmation
     private void deleteCategory(final Category category, final int position) {
         new AlertDialog.Builder(this)
                 .setTitle("Supprimer la catégorie")

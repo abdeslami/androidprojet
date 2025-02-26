@@ -8,22 +8,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static final int SPLASH_TIME_OUT = 3000; // 3 secondes
+    private static final int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen); // Assurer l'affichage du layout
+        setContentView(R.layout.activity_splash_screen);
 
-        // Handler pour attendre 3 secondes avant de rediriger
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Vérification de l'état de la connexion de l'utilisateur
                 SharedPreferences preferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                 boolean isLoggedIn = preferences.getBoolean("isLoggedIn", false);
 
-                // Redirection en fonction de l'état de connexion
                 Intent intent;
                 if (isLoggedIn) {
                     intent = new Intent(SplashScreen.this, Dashboard.class);
@@ -31,8 +28,8 @@ public class SplashScreen extends AppCompatActivity {
                     intent = new Intent(SplashScreen.this, Login.class);
                 }
                 startActivity(intent);
-                finish(); // Ferme SplashScreen après la redirection
+                finish();
             }
-        }, SPLASH_TIME_OUT); // 3000 ms (3 secondes)
+        }, SPLASH_TIME_OUT);
     }
 }
