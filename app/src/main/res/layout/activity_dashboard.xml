@@ -73,4 +73,13 @@
       android:layout_toEndOf="@id/gotoProduct"
       android:text="Categorie" />
 
+  <Button
+      android:id="@+id/gotoUser"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/gotoCategory"
+      android:layout_marginStart="96dp"
+      android:layout_marginTop="63dp"
+      android:text="Profile" />
+
 </RelativeLayout>

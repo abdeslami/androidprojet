@@ -61,6 +61,12 @@
             android:layout_height="wrap_content"
             android:text="Details de produit"
             android:layout_marginTop="16dp" />
+        <Button
+            android:id="@+id/gotoDashbaord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dashboard"
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 </ScrollView>

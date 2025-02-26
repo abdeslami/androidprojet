@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.projet.Dashboard;
 import com.example.projet.R;
 import com.example.projet.database.DatabaseHelper;
 
@@ -26,7 +27,7 @@ public class AddProduitActivity extends AppCompatActivity {
 
     private EditText etProduitNom, etProduitPrix, etProduitDescription, etProduitCategorieId;
     private ImageView ivProduitImage;
-    private Button btnSelectImage, btnAddProduit,todetailsProduit;
+    private Button btnSelectImage, btnAddProduit,todetailsProduit,gotoDashbaord;
     private DatabaseHelper dbHelper;
     private Bitmap selectedImage;
     private byte[] imageBytes;
@@ -46,6 +47,17 @@ public class AddProduitActivity extends AppCompatActivity {
         btnSelectImage = findViewById(R.id.btnSelectImage);
         btnAddProduit = findViewById(R.id.btnAddProduit);
         todetailsProduit=findViewById(R.id.todetailsProduit);
+        gotoDashbaord=findViewById(R.id.gotoDashbaord);
+        gotoDashbaord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                startActivity(intent);
+
+            }});
+
+
+
         todetailsProduit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

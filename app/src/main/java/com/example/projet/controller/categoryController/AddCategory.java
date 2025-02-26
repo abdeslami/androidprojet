@@ -17,7 +17,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.projet.Dashboard;
 import com.example.projet.R;
+import com.example.projet.controller.productController.AddProduitActivity;
 import com.example.projet.database.DatabaseHelper;
 
 import java.io.ByteArrayOutputStream;
@@ -27,7 +29,7 @@ public class AddCategory extends AppCompatActivity {
 
     private EditText etCategoryName;
     private ImageView ivCategoryImage;
-    private Button btnSelectImage, btnAddCategory,btndetailsCategory;
+    private Button btnSelectImage, btnAddCategory,btndetailsCategory,togoDashboard;
     private Bitmap selectedImage;
     private DatabaseHelper dbHelper;
     private static final int REQUEST_IMAGE_PICK = 100;
@@ -42,6 +44,14 @@ public class AddCategory extends AppCompatActivity {
         ivCategoryImage = findViewById(R.id.ivCategoryImage);
         btnSelectImage = findViewById(R.id.btnSelectImage);
         btnAddCategory = findViewById(R.id.btnAddCategory);
+        togoDashboard=findViewById(R.id.togoDashboard);
+        togoDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddCategory.this, Dashboard.class);
+                startActivity(intent);
+            }});
+
         dbHelper = new DatabaseHelper(this);
 
         btnSelectImage.setOnClickListener(view -> {
