@@ -2,63 +2,57 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:background="@android:color/white"
-    android:elevation="4dp">
+    android:background="@drawable/inputstyle"
+    android:padding="12dp"
+    android:elevation="6dp"
+    android:layout_margin="8dp">
 
-    <!-- Image du produit -->
     <ImageView
         android:id="@+id/ivProduitImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
+        android:background="@drawable/imagestyle"
         android:contentDescription="Product Image"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="16dp"/>
 
-    <!-- Contenu texte du produit -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_toEndOf="@id/ivProduitImage"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:paddingTop="10dp"
-        android:layout_marginTop="5dp">
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
 
-        <!-- Nom du produit -->
         <TextView
             android:id="@+id/tvProduitNom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nom du produit"
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textColor="#333333"
             android:textStyle="bold"/>
 
-        <!-- Prix du produit -->
         <TextView
             android:id="@+id/tvProduitPrix"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prix du produit"
-            android:textSize="16sp"
-            android:textColor="@android:color/holo_green_dark"/>
+            android:textSize="18sp"
+            android:textColor="#FF6B6B"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"/>
 
-        <!-- Description du produit -->
         <TextView
             android:id="@+id/tvProduitDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description du produit"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="5dp"/>
-
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:layout_marginTop="4dp"/>
     </LinearLayout>
 
 </RelativeLayout>

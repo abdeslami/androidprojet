@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app"
+
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
+        <ImageView
+            android:id="@+id/ivProduitImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="18dp"
+            />
+
+        <Button
+            android:id="@+id/btnSelectImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/butten_transparent"
+            android:layout_marginBottom="18dp"
+
+            android:text="Sélectionner une image"
+            android:layout_marginTop="8dp" />
 
         <EditText
             android:id="@+id/etProduitNom"
-            android:layout_width="match_parent"
+
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/inputstyle" android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nom du produit" />
 
@@ -18,6 +42,10 @@
             android:id="@+id/etProduitPrix"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:background="@drawable/inputstyle"
+
+            android:layout_marginBottom="18dp"
             android:hint="Prix du produit"
             android:inputType="numberDecimal" />
 
@@ -25,34 +53,32 @@
             android:id="@+id/etProduitDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/inputstyle"
+
             android:hint="Description du produit" />
 
         <EditText
             android:id="@+id/etProduitCategorieId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/inputstyle"
+
+
             android:hint="ID de la catégorie"
             android:inputType="number" />
 
-        <ImageView
-            android:id="@+id/ivProduitImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_marginTop="16dp" />
 
-        <Button
-            android:id="@+id/btnSelectImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sélectionner une image"
-            android:layout_marginTop="8dp" />
 
         <Button
             android:id="@+id/btnUpdateProduit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/butten_transparent"
+
             android:text="Mettre à jour"
             android:layout_marginTop="16dp" />
 

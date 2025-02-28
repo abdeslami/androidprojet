@@ -4,16 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg_app"
     android:padding="16dp">
 
-    <!-- Saisie du nom de la catégorie -->
-    <EditText
-        android:id="@+id/etCategoryName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nom de la catégorie" />
-
-    <!-- Affichage de l'image actuelle / sélectionnée -->
     <ImageView
         android:id="@+id/ivCategoryImage"
         android:layout_width="match_parent"
@@ -21,21 +14,34 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
         android:layout_marginTop="16dp" />
-
-    <!-- Bouton pour sélectionner une nouvelle image -->
     <Button
         android:id="@+id/btnSelectImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Sélectionner une nouvelle image"
-        android:layout_marginTop="8dp" />
 
-    <!-- Bouton pour mettre à jour la catégorie -->
+        android:background="@drawable/butten_transparent"
+
+        android:layout_marginTop="18dp" />
+
+    <EditText
+        android:id="@+id/etCategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/inputstyle"
+        android:layout_marginBottom="10dp"
+        android:hint="Nom de la catégorie" />
+
     <Button
         android:id="@+id/btnUpdateCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/butten_transparent"
+
         android:text="Mettre à jour"
-        android:layout_marginTop="16dp" />
+
+        android:layout_marginTop="100dp"
+        />
 
 </LinearLayout>

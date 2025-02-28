@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    android:background="@color/white">
+
+    android:background="@drawable/bg_app"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,76 +14,88 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <!-- Logo -->
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/logo"
+            android:layout_width="278dp"
+            android:layout_height="308dp"
+            android:layout_gravity="center"
             android:contentDescription="Logo OujdaShop"
-            android:layout_gravity="center"/>
-
-        <!-- Champ Nom -->
+            android:src="@drawable/onlineshop" />
         <EditText
-            android:id="@+id/textNom"
+            android:id="@+id/emailRegister"
             android:layout_width="match_parent"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/inputstyle"
             android:layout_height="wrap_content"
-            android:hint="Nom"
-            android:inputType="textPersonName"
+
+            android:hint="Email"
+            android:inputType="textEmailAddress"
             android:padding="10dp"/>
 
-        <!-- Champ Prénom -->
         <EditText
             android:id="@+id/textPrenom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Prénom"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/inputstyle"
             android:inputType="textPersonName"
             android:padding="10dp"/>
 
-        <!-- Champ Email -->
+
+
         <EditText
-            android:id="@+id/emailRegister"
+            android:id="@+id/textNom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"/>
+            android:layout_marginBottom="10dp"
 
-        <!-- Champ Mot de passe -->
+
+            android:background="@drawable/inputstyle"
+            android:hint="Nom"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
         <EditText
             android:id="@+id/textPasswordRegister"
             android:layout_width="match_parent"
+
+            android:background="@drawable/inputstyle"
             android:layout_height="wrap_content"
             android:hint="Mot de passe"
             android:inputType="textPassword"
-            android:padding="10dp"/>
+            android:layout_marginBottom="10dp"
 
-        <!-- Champ Confirmation Mot de passe -->
+            android:padding="10dp"/>
         <EditText
             android:id="@+id/textConfirmPassword"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/inputstyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirmer le mot de passe"
             android:inputType="textPassword"
             android:padding="10dp"/>
-
-        <!-- Bouton Inscription -->
         <Button
             android:id="@+id/buttonregister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="S'inscrire"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/inputstyle"
             android:backgroundTint="@color/blue"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"/>
 
-        <!-- Bouton vers Connexion -->
         <TextView
             android:id="@+id/textviewlogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Déjà un compte ? Se connecter"
-            android:textColor="@color/blue"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:padding="10dp"
             android:textStyle="bold"/>
