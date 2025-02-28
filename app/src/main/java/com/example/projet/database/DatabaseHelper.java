@@ -18,20 +18,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "shop.db";
     private static final int DATABASE_VERSION = 1;
 
-    // Table Utilisateurs
     private static final String TABLE_USERS = "users";
     private static final String COL_USER_ID = "id";
     private static final String COL_USER_NAME = "name";
     private static final String COL_USER_EMAIL = "email";
     private static final String COL_USER_PASSWORD = "password";
 
-    // Table Catégories
     private static final String TABLE_CATEGORIES = "category";
     private static final String COL_CATEGORY_ID = "id";
     private static final String COL_CATEGORY_NAME = "name";
     private static final String COL_CATEGORY_IMAGE = "image";
 
-    // Table Produits
     private static final String TABLE_PRODUCTS = "product";
     private static final String COL_PRODUCT_ID = "id";
     private static final String COL_PRODUCT_NAME = "name";
