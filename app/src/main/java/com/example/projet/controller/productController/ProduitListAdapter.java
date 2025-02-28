@@ -46,7 +46,7 @@ public class ProduitListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.listitemproduct, parent, false);
+            convertView = inflater.inflate(R.layout.itemproduct, parent, false);
             holder = new ViewHolder();
             holder.ivProduitImage = convertView.findViewById(R.id.ivProduitImage);
             holder.tvProduitNom = convertView.findViewById(R.id.tvProduitNom);
@@ -59,7 +59,7 @@ public class ProduitListAdapter extends BaseAdapter {
 
         Produit produit = produitList.get(position);
         holder.tvProduitNom.setText(produit.getNom());
-        holder.tvProduitPrix.setText(produit.getPrix() + " €");
+        holder.tvProduitPrix.setText(produit.getPrix() + " DH");
         holder.tvProduitDescription.setText(produit.getDescription());
         if (produit.getImage() != null) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(produit.getImage(), 0, produit.getImage().length);

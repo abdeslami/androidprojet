@@ -1,7 +1,6 @@
 package com.example.projet.controller.productController;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,7 +9,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,7 +38,7 @@ public class EditProduitActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_produit);
+        setContentView(R.layout.edit_produit);
 
         etProduitNom = findViewById(R.id.etProduitNom);
         etProduitPrix = findViewById(R.id.etProduitPrix);

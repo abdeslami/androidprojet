@@ -12,7 +12,6 @@ package com.example.projet.model;
             this.image = image;
         }
 
-        // Getters et Setters
         public int getId() {
             return id;
         }
@@ -21,5 +20,17 @@ package com.example.projet.model;
         }
         public byte[] getImage() {
             return image;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setImage(byte[] image) {
+            this.image = image;
         }
     }

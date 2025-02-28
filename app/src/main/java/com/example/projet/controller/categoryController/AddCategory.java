@@ -17,10 +17,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projet.Dashboard;
+import com.example.projet.controller.Dashboard;
 import com.example.projet.R;
-import com.example.projet.controller.productController.AddProduitActivity;
-import com.example.projet.database.DatabaseHelper;
+import com.example.projet.dao.CategoryDAO;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -31,14 +30,14 @@ public class AddCategory extends AppCompatActivity {
     private ImageView ivCategoryImage;
     private Button btnSelectImage, btnAddCategory,btndetailsCategory,togoDashboard;
     private Bitmap selectedImage;
-    private DatabaseHelper dbHelper;
+    private CategoryDAO dbHelper;
     private static final int REQUEST_IMAGE_PICK = 100;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_add);
+        setContentView(R.layout.category_add);
 
         etCategoryName = findViewById(R.id.etCategoryName);
         ivCategoryImage = findViewById(R.id.ivCategoryImage);
@@ -52,7 +51,7 @@ public class AddCategory extends AppCompatActivity {
                 startActivity(intent);
             }});
 
-        dbHelper = new DatabaseHelper(this);
+    dbHelper = new CategoryDAO(getApplicationContext());
 
         btnSelectImage.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

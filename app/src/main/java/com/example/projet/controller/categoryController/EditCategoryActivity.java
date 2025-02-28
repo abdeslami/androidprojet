@@ -40,7 +40,7 @@ public class EditCategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_edit);
+        setContentView(R.layout.category_edit);
 
         etCategoryName = findViewById(R.id.etCategoryName);
         ivCategoryImage = findViewById(R.id.ivCategoryImage);

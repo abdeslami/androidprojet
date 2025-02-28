@@ -16,9 +16,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projet.Dashboard;
+import com.example.projet.controller.Dashboard;
 import com.example.projet.R;
-import com.example.projet.database.DatabaseHelper;
+import com.example.projet.dao.ProductDAO;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class AddProduitActivity extends AppCompatActivity {
     private EditText etProduitNom, etProduitPrix, etProduitDescription, etProduitCategorieId;
     private ImageView ivProduitImage;
     private Button btnSelectImage, btnAddProduit,todetailsProduit,gotoDashbaord;
-    private DatabaseHelper dbHelper;
+    private ProductDAO dbHelper;
     private Bitmap selectedImage;
     private byte[] imageBytes;
     private static final int REQUEST_IMAGE_PICK = 103;
@@ -37,7 +37,7 @@ public class AddProduitActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_produit);
+        setContentView(R.layout.addproduct);
 
         etProduitNom = findViewById(R.id.etProduitNom);
         etProduitPrix = findViewById(R.id.etProduitPrix);
@@ -65,7 +65,7 @@ public class AddProduitActivity extends AppCompatActivity {
                 startActivity(intent);
             }});
 
-        dbHelper = new DatabaseHelper(this);
+        dbHelper = new ProductDAO(getApplicationContext());
 
         btnSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override

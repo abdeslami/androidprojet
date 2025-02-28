@@ -4,26 +4,22 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.projet.Dashboard;
+import com.example.projet.controller.Dashboard;
 import com.example.projet.R;
 import com.example.projet.database.DatabaseHelper;
 import com.example.projet.model.User;
 
 public class UserActivity extends AppCompatActivity {
 
-    private EditText etNom, etEmail, etPassword, changePassword;
-    private Button btnSaveChanges, btnChangePassword,togoDashboard;
-    private Switch switchNotifications;
+    private EditText etNom, etEmail, etPrenom, etPassword;
+    private Button btnSaveChanges,togoDashboard;
     private DatabaseHelper dbHelper;
     private int userId;
 
@@ -31,15 +27,13 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+        setContentView(R.layout.user);
 
         etNom = findViewById(R.id.etNom);
+        etPrenom = findViewById(R.id.etPrenome);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnSaveChanges = findViewById(R.id.btnSaveChanges);
-        btnChangePassword = findViewById(R.id.btnChangePassword);
-        switchNotifications = findViewById(R.id.switchNotifications);
-        changePassword = findViewById(R.id.changePassword);
 
         dbHelper = new DatabaseHelper(this);
         togoDashboard = findViewById(R.id.togoDashboard);
@@ -62,7 +56,6 @@ public class UserActivity extends AppCompatActivity {
         getInfoUser(userId);
 
         btnSaveChanges.setOnClickListener(view -> saveUserChanges());
-        btnChangePassword.setOnClickListener(view -> changePasswordDialog());
     }
 
     private void loadUserDetails() {
@@ -84,8 +77,6 @@ public class UserActivity extends AppCompatActivity {
             return;
         }
 
-        boolean notificationsEnabled = switchNotifications.isChecked();
-        Toast.makeText(this, "Notifications activées: " + notificationsEnabled, Toast.LENGTH_SHORT).show();
 
         boolean updated = dbHelper.updateUser(userId, nom, email, password);
         if (updated) {
@@ -96,32 +87,13 @@ public class UserActivity extends AppCompatActivity {
         }
     }
 
-    private void changePasswordDialog() {
 
-        String password = changePassword.getText().toString().trim();
-        if (password.isEmpty()) {
-            Toast.makeText(this, "Veuillez entrer un nouveau mot de passe", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        boolean updated = dbHelper.updateUserPassword(userId, password);
-        if (updated) {
-            Toast.makeText(this, "Mot de passe modifié avec succès", Toast.LENGTH_SHORT).show();
-            finish();
-        } else {
-            Toast.makeText(this, "Erreur lors de la modification du mot de passe", Toast.LENGTH_SHORT).show();
-        }
-
-    }
     private void getInfoUser(int userId) {
         User user = dbHelper.getInfoUser(userId);
         etNom.setText(user.getNom());
         etEmail.setText(user.getEmail());
         etPassword.setText(user.getPassword());
-
-
-
-
-
+        etPrenom.setText(user.getPrenom());
 
     }
 

@@ -1,9 +1,10 @@
-package com.example.projet;
+package com.example.projet.auth;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.projet.R;
+import com.example.projet.dao.UserDAO;
 import com.example.projet.database.DatabaseHelper;
 
 public class Registre extends AppCompatActivity {
@@ -20,12 +23,38 @@ public class Registre extends AppCompatActivity {
     private TextView textViewLogin;
 
     private DatabaseHelper dbHelper;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_app, menu);
+        return true;
+    }
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_logout) {
+
+
+            Intent intent = new Intent(this, Login.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registre);
+        setContentView(R.layout.registre);
 
         editTextNom = findViewById(R.id.textNom);
         editTextPrenom = findViewById(R.id.textPrenom);

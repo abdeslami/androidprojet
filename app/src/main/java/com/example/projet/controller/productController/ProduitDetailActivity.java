@@ -13,8 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projet.R;
-import com.example.projet.controller.productController.ProduitListAdapter;
-import com.example.projet.database.DatabaseHelper;
+import com.example.projet.dao.ProductDAO;
 import com.example.projet.model.Produit;
 
 import java.util.ArrayList;
@@ -25,16 +24,16 @@ public class ProduitDetailActivity extends AppCompatActivity {
     private ListView listViewProduits;
     private ProduitListAdapter adapter;
     private List<Produit> produitList;
-    private DatabaseHelper dbHelper;
+    private ProductDAO dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_produit_detail);
+        setContentView(R.layout.produit_list);
 
         listViewProduits = findViewById(R.id.listViewProduits);
         produitList = new ArrayList<>();
-        dbHelper = new DatabaseHelper(this);
+        dbHelper = new ProductDAO(getApplicationContext());
 
         loadProduits();
 
@@ -66,12 +65,10 @@ public class ProduitDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (which == 0) {
-                    // Modifier : lancer EditProduitActivity
                     Intent intent = new Intent(ProduitDetailActivity.this, EditProduitActivity.class);
                     intent.putExtra("PRODUIT_ID", produit.getId());
                     startActivity(intent);
                 } else if (which == 1) {
-                    // Supprimer
                     deleteProduit(produit, position);
                 }
             }

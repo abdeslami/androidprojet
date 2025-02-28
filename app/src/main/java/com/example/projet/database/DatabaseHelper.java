@@ -85,7 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 double prix = cursor.getDouble(cursor.getColumnIndex(COL_PRODUCT_PRICE));
                 String description = cursor.getString(cursor.getColumnIndex(COL_PRODUCT_DESC));
                 byte[] image = cursor.getBlob(cursor.getColumnIndex(COL_PRODUCT_IMAGE));
-                 int categorieId = cursor.getInt(cursor.getColumnIndex(COL_PRODUCT_CATEGORY_ID));
+                int categorieId = cursor.getInt(cursor.getColumnIndex(COL_PRODUCT_CATEGORY_ID));
                 Produit produit = new Produit(id, nom, prix, description, image, categorieId);
                 produitList.add(produit);
             } while (cursor.moveToNext());
@@ -138,7 +138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String email = cursor.getString(cursor.getColumnIndex(COL_USER_EMAIL));
                 String password = cursor.getString(cursor.getColumnIndex(COL_USER_PASSWORD));
 
-              user = new User(userId, name,name, email, password);
+                user = new User(userId, name,name, email, password);
 
                 cursor.close();
                 return null;
@@ -182,11 +182,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         User user=null;
 
         if (cursor != null && cursor.moveToFirst()) {
-           int id = cursor.getInt(cursor.getColumnIndex(COL_USER_ID));
+            int id = cursor.getInt(cursor.getColumnIndex(COL_USER_ID));
             @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(COL_USER_NAME));
             String email = cursor.getString(cursor.getColumnIndex(COL_USER_EMAIL));
             String password = cursor.getString(cursor.getColumnIndex(COL_USER_PASSWORD));
-             user = new User(id, name, name, email, password);
+            user = new User(id, name, name, email, password);
 
             cursor.close();
 
@@ -228,7 +228,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COL_PRODUCT_CATEGORY_ID + " INTEGER, " +
                 "FOREIGN KEY (" + COL_PRODUCT_CATEGORY_ID + ") REFERENCES " + TABLE_CATEGORIES + "(id))";
 
-        // Exécution des requêtes de création
         db.execSQL(createUsersTable);
         db.execSQL(createCategoriesTable);
         db.execSQL(createProductsTable);
